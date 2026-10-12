@@ -96,6 +96,29 @@ working directory has to be this one.
 CIFAR-10 (~170 MB) downloads automatically on first use into `data/` and is
 then cached as a single `.npz`, so it only happens once.
 
+### Running on another machine (e.g. a MacBook)
+
+The whole project is in the repo; `data/` is gitignored and re-downloads itself.
+
+```bash
+git clone https://github.com/vineshsou/Computer_vision_Notebook.git
+cd Computer_vision_Notebook
+python3 -m venv .venv && source .venv/bin/activate
+pip install numpy matplotlib torch jupyterlab
+jupyter lab
+```
+
+As above, start Jupyter from the repo root. On Apple Silicon, PyTorch can use
+the `mps` device; CPU also works.
+
+**Keeping machines in sync.** Notebooks are JSON, so editing the same one on
+two machines without syncing causes painful merge conflicts.
+
+- Before you stop: `git add -A && git commit -m "..." && git push`
+- Before you start: `git pull`
+- Optional: `pip install nbstripout && nbstripout --install` strips cell
+  outputs on commit, which keeps diffs readable.
+
 ## Layout
 
 ```
